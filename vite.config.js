@@ -7,6 +7,9 @@ export default defineConfig({
   plugins: [react()],
 
   server: {
-    port: 3000
+    port: 3000,
+    proxy: {
+      '/api': 'http://employee-api-svc:8080'
+    }
   }
 })
