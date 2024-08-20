@@ -1,18 +1,24 @@
 import axios from 'axios'
 
-const REST_API_BASE_URL =  import.meta.env.VITE_APIURL;
+//const REST_API_BASE_URL =  import.meta.env.VITE_APIURL;
 
-const DEPARTMENT_REST_API_URL = `${REST_API_BASE_URL}/api/departments`
+const baseURL = import.meta.env.VITE_BASEURL;
+
+export const axiosInstance = axios.create({
+  baseURL,
+});
+
+//const DEPARTMENT_REST_API_URL = `${REST_API_BASE_URL}/api/departments`
 //const DEPARTMENT_REST_API_URL = `/api/departments`
-console.log(`DEPARTMENT_REST_API_URL = ${DEPARTMENT_REST_API_URL}`)
+//console.log(`DEPARTMENT_REST_API_URL = ${DEPARTMENT_REST_API_URL}`)
 //'http://localhost:8080/api/departments'
 
-export const getAllDepartments = () => axios.get(DEPARTMENT_REST_API_URL);
+export const getAllDepartments = () => axiosInstance.get('/departments');
 
-export const createDepartment = (department) => axios.post(DEPARTMENT_REST_API_URL, department);
+export const createDepartment = (department) => axiosInstance.post('/departments', department);
 
-export const getDepartmentById = (departmentId) => axios.get(DEPARTMENT_REST_API_URL + '/' + departmentId);
+export const getDepartmentById = (departmentId) => axiosInstance.get('/departments' + '/' + departmentId);
 
-export const updateDepartment = (departmentId, department) => axios.put(DEPARTMENT_REST_API_URL + '/' + departmentId, department);
+export const updateDepartment = (departmentId, department) => axiosInstance.put('/departments' + '/' + departmentId, department);
 
-export const deleteDepartment = (departmentId) => axios.delete(DEPARTMENT_REST_API_URL + '/' + departmentId);
+export const deleteDepartment = (departmentId) => axiosInstance.delete('/departments' + '/' + departmentId);
