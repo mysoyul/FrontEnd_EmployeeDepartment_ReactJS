@@ -8,7 +8,7 @@ FROM node:20.11.1-alpine3.19 as build
 WORKDIR /app
 
 # exposing all our Node.js binaries
-ENV PATH /app/node_modules/.bin:$PATH
+ENV PATH=/app/node_modules/.bin:$PATH
 
 # Copy package.json
 COPY package.json /app/package.json
