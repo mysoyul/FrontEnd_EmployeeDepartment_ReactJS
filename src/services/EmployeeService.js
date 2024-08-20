@@ -3,11 +3,16 @@ import axios from "axios";
 //const REST_API_BASE_URL =  import.meta.env.VITE_APIURL; //http://localhost:8080
 
 //const REST_API_URL = `${REST_API_BASE_URL}/api/employees`
+const REST_API_URL2 = `/api/employees/departments`
+console.log(`REST_API_URL2 = ${REST_API_URL2}`)
+
 const REST_API_URL = `/api/employees`
 console.log(`REST_API_URL = ${REST_API_URL}`)
+
+
 //'http://localhost:8080/api/employees';
 
-export const listEmployees = () => axios.get(`${REST_API_URL}/departments`);
+export const listEmployees = () => axios.get(`${REST_API_URL2}`);
 
 export const createEmployee = (employee) => axios.post(`${REST_API_URL}`, employee);
 
