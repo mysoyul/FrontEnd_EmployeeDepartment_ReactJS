@@ -14,7 +14,7 @@ function App() {
       <BrowserRouter>
         <HeaderComponent />
           <Routes>
-            {/* // http://localhost:3000 */}
+              {/* // http://localhost:3000 */}
               <Route path='/' element = { <ListEmployeeComponent />}></Route>
               {/* // http://localhost:3000/employees */}
               <Route path='/employees' element = { <ListEmployeeComponent /> }></Route>
@@ -29,7 +29,7 @@ function App() {
 
               {/* // http://localhost:3000/add-department */}
               <Route path='/add-department' element = { <DepartmentComponent /> }></Route>
-
+              {/* // http://localhost:3000/edit-department/1 */}
               <Route path='/edit-department/:id' element = { <DepartmentComponent />}></Route>
           </Routes>
         <FooterComponent />

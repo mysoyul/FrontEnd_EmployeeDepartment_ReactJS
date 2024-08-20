@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import { createEmployee, getEmployee, updateEmployee } from '../services/EmployeeService'
 import { useNavigate, useParams } from 'react-router-dom';
 import { getAllDepartments } from '../services/DepartmentService';
@@ -19,7 +19,7 @@ const EmployeeComponent = () => {
         })
     }, [])
 
-    const {id} = useParams();
+    const { id } = useParams();
     const [errors, setErrors] = useState({
         firstName: '',
         lastName: '',
@@ -30,7 +30,6 @@ const EmployeeComponent = () => {
     const navigator = useNavigate();
 
     useEffect(() => {
-
         if(id){
             getEmployee(id).then((response) => {
                 setFirstName(response.data.firstName);
