@@ -9,7 +9,11 @@ export default defineConfig({
   server: {
     port: 3000,
     proxy: {
-      '/api': 'http://34.132.42.222:8080'
+      '/api': {
+          target: import.meta.env.VITE_APIURL,
+          changeOrigin: true,
+          rewrite: (path) => path.replace(/^\/api/, ''),
+        },
     }
   }
 })
