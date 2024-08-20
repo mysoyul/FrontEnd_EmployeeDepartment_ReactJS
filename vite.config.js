@@ -14,15 +14,16 @@ import react from '@vitejs/plugin-react'
 //   }
 // })
 export default defineConfig(({ mode }) => {
-  const env = loadEnv(mode, process.cwd());
-
+  const env = loadEnv(mode, process.cwd(), '')
+  
   const API_URL = `${env.VITE_APIURL ?? 'http://localhost:8080'}`;
   const PORT = `${env.VITE_PORT ?? '3000'}`;
 
   return {
     server: {
       proxy: {
-        '/api': API_URL,
+        target: API_URL, // 환경 변수 값 사용
+        changeOrigin: true,
       },
       port: PORT,
     },
