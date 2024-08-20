@@ -12,7 +12,8 @@ export default defineConfig({
       '/api': {
           target: 'http://employee-api-svc:8080',
           changeOrigin: true,
-          rewrite: (path) => path.replace(/^\/api/, ''),
+          // rewrite: (path) => path.replace(/^\/api/, ''),
+          secure: false,
         },
     }
   }
