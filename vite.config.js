@@ -22,8 +22,11 @@ export default defineConfig(({ mode }) => {
   return {
     server: {
       proxy: {
-        target: API_URL, // 환경 변수 값 사용
-        changeOrigin: true,
+        '/api': {
+          target: API_URL, // 환경 변수 값 사용
+          changeOrigin: true,
+          secure: false,
+        },
       },
       port: PORT,
     },
