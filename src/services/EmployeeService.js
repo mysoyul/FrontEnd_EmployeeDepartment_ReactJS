@@ -18,10 +18,10 @@ export const axiosInstance = axios.create({
 
 export const listEmployees = () => axiosInstance.get('/employees/departments');
 
-export const createEmployee = (employee) => axios.post('/employees', employee);
+export const createEmployee = (employee) => axiosInstance.post('/employees', employee);
 
-export const getEmployee = (employeeId) => axios.get(`/employees/${employeeId}` );
+export const getEmployee = (employeeId) => axiosInstance.get(`/employees/${employeeId}` );
 
-export const updateEmployee = (employeeId, employee) => axios.put(`/employees/${employeeId}`, employee);
+export const updateEmployee = (employeeId, employee) => axiosInstance.put(`/employees/${employeeId}`, employee);
 
-export const deleteEmployee = (employeeId) => axios.delete(`/employees/${employeeId}`);
+export const deleteEmployee = (employeeId) => axiosInstance.delete(`/employees/${employeeId}`);
