@@ -15,9 +15,9 @@ import react from '@vitejs/plugin-react'
 // })
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), '')
-  
+
   const API_URL = `${env.VITE_APIURL ?? 'http://127.0.0.1:8080'}`;
-  const PORT = `${env.VITE_PORT ?? '3000'}`;
+  // const PORT = `${env.VITE_PORT ?? '3000'}`;
 
   return {
     server: {
@@ -27,10 +27,13 @@ export default defineConfig(({ mode }) => {
           // rewrite: (path) => path.replace(/^\/api/, ''),
           changeOrigin: true,
           autoRewrite: true,
+          secure: false,
+          // ws: true,
         },
+        // port: PORT,
       },
-      port: PORT,
-    },
-    plugins: [react()],
-  };
-});
+      plugins: [react()],
+    }
+  }
+}
+);

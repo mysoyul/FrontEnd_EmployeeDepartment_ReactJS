@@ -1,3 +1,4 @@
+import React from 'react'
 import './App.css'
 import DepartmentComponent from './components/DepartmentComponent'
 import EmployeeComponent from './components/EmployeeComponent'
